@@ -1,3 +1,4 @@
+#[derive(serde::Serialize)]
 pub struct Resources {
     pub wood: u32,
     pub stone: u32,

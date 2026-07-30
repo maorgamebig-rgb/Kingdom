@@ -2,6 +2,7 @@ use crate::resources::Resources;
 use crate::combat::Army;
 use crate::buildings::Buildings;
 
+#[derive(serde::Serialize)]
 pub struct Kingdom {
     pub name: String, // name of the kingdom duh
     pub king: String, // character name
