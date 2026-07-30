@@ -1,3 +1,5 @@
+use serde::{Serialize, Deserialize};
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 pub struct Resources {
     pub wood: u32,
     pub stone: u32,
