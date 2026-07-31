@@ -4,7 +4,7 @@ use std::fs::File;
 use std::io::{self, Write, Read};
 
 
-use crate::buildings::{Building, BuildingType};
+use crate::buildings::{Buildings, BuildingType};
 use crate::combat::Army;
 use crate::kingdom::Kingdom;
 use crate::resources::Resources;
@@ -86,9 +86,10 @@ pub fn load_world_off_system() -> Kingdom{
         king: String::new(),
         level: 0, 
         resources: Resources { wood: 0, stone: 0, food: 0, gold: 0 }, 
-        buildings: vec![Building { building_type: BuildingType::Farm, level: 0}], 
+        buildings: vec![Buildings { building_type: BuildingType::Farm, level: 0 }], 
         army: Army {  }, 
-        turn: 0 
+        turn: 0,
+        last_tick: None,
     }
 
 }

@@ -38,6 +38,7 @@ fn init_kingdom() -> Kingdom {
         buildings: Vec::new(),
         army: Army {},
         turn: 0,
+        last_tick: None,
     };
 
     kingdom
