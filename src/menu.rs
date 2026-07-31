@@ -78,6 +78,7 @@ fn avalibe_commends() {
     println!("{}", "C - create new world".yellow());
     println!("{}", "L - load world".yellow());
     println!("{}", "D - delete world".yellow());
+    println!("{}", "Q - quit".yellow());
 }
 
 
@@ -181,6 +182,10 @@ fn do_user_commend(commend: &str) -> MenuAction {
         &_ => {
             println!("{}", "Not a valid choice. Enter choice agian.".red());
             MenuAction::Continue
+        }
+        "q" => {
+            println!("{}", "Exiting game...".green());
+            MenuAction::Exit
         }
     }
 
