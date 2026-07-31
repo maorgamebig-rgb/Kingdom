@@ -11,14 +11,14 @@ pub enum BuildingType {
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
-pub struct Buildings {
+pub struct Building {
     pub building_type: BuildingType,
     pub level: u32,
 }
 
-impl Buildings {
+impl Building {
     pub fn new(building_type: BuildingType, level: u32) -> Self {
-        Buildings {
+        Building {
             building_type,
             level: 1,
         }
