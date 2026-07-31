@@ -8,5 +8,6 @@ mod buildings;
 mod save_system;
 
 fn main() {
+   // Run main menu (world creation / load / delete)
    main_menu(); 
 }

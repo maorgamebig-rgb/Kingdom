@@ -7,10 +7,12 @@ use crate::kingdom::Kingdom;
 use crate::resources::Resources;
 use crate::combat::Army;
 
+
 use crate::save_system::save_world_to_system;
 
 
-// CREATE WORLD
+// Return if world was created or not so in case not, the menu can be shown
+// agian, and not ask for C / L / D straight away
 pub fn create_world() -> bool {
 
     let mut kingdom = init_kingdom();
@@ -43,9 +45,13 @@ fn init_kingdom() -> Kingdom {
 
 fn world_creation_finished_message(kingdom: &mut Kingdom) {
     kingdom.king = take_username_from_user();
+
     println!("The king {} has been born!\n", kingdom.king);
+
     kingdom.name = take_kingdom_name_from_user();
+
     let final_message = format!("The kingdom {} is under {}'s control!\n", kingdom.name, kingdom.king);
+    
     println!("{}", final_message.yellow());
 
     println!("World created!\nYour adventure as a king has just started\n");
