@@ -87,7 +87,7 @@ pub fn load_world_off_system() -> Kingdom{
         level: 0, 
         resources: Resources { wood: 0, stone: 0, food: 0, gold: 0 }, 
         buildings: vec![Buildings { building_type: BuildingType::Farm, level: 0 }], 
-        army: Army {  }, 
+        army: Army {knights: 0, archers: 0}, 
         turn: 0,
         last_tick: None,
     }

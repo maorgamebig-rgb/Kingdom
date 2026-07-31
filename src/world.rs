@@ -36,7 +36,7 @@ fn init_kingdom() -> Kingdom {
             gold: 250
         },
         buildings: Vec::new(),
-        army: Army {},
+        army: Army {knights: 0, archers: 0},
         turn: 0,
         last_tick: None,
     };
