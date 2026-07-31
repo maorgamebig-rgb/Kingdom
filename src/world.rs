@@ -3,18 +3,23 @@ use std::io::{self, Write};
 use owo_colors::OwoColorize;
 
 
-use crate::kingdom::{self, Kingdom};
+use crate::kingdom::Kingdom;
 use crate::resources::Resources;
 use crate::combat::Army;
 
+use crate::save_system::save_world_to_system;
+
 
 // CREATE WORLD
-pub fn create_world() {
+pub fn create_world() -> bool {
 
     let mut kingdom = init_kingdom();
 
     world_creation_finished_message(&mut kingdom);
 
+    let created_world: bool = save_world_to_system(&kingdom);
+
+    created_world
 }
 
 fn init_kingdom() -> Kingdom {
@@ -34,6 +39,16 @@ fn init_kingdom() -> Kingdom {
     };
 
     kingdom
+}
+
+fn world_creation_finished_message(kingdom: &mut Kingdom) {
+    kingdom.king = take_username_from_user();
+    println!("The king {} has been born!\n", kingdom.king);
+    kingdom.name = take_kingdom_name_from_user();
+    let final_message = format!("The kingdom {} is under {}'s control!\n", kingdom.name, kingdom.king);
+    println!("{}", final_message.yellow());
+
+    println!("World created!\nYour adventure as a king has just started\n");
 }
 
 fn take_username_from_user() -> String{
@@ -70,14 +85,4 @@ fn take_kingdom_name_from_user() -> String{
 
     kingdome_name
     
-}
-
-fn world_creation_finished_message(kingdom: &mut Kingdom) {
-    kingdom.king = take_username_from_user();
-    println!("The king {} has been born!\n", kingdom.king);
-    kingdom.name = take_kingdom_name_from_user();
-    let final_message = format!("The kingdom {} is under {}'s control!\n", kingdom.name, kingdom.king);
-    println!("{}", final_message.yellow());
-
-    println!("World created!\nYour adventure as a king has just started\n");
 }

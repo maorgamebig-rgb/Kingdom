@@ -1,8 +1,8 @@
 use std::io::{self, Write};
 use owo_colors::OwoColorize;
 
+use crate::world::create_world;
 
-use crate::world::{self, create_world};
 
 
 // Enum of continue and exit so I can tell the menu loop if it should break after doing a commend or continue after invalid commend
@@ -32,7 +32,7 @@ pub fn main_menu() {
 
 // BASIC MENU DISPLAY
 fn title() {
-    println!("==== KINGDOM MADE BY DUMBASS ====");
+    println!("\n==== KINGDOM MADE BY DUMBASS ====");
     println!("{:^33}", "by alex & maor\n");
 }
 
@@ -45,7 +45,6 @@ fn objective() {
 fn avalibe_commends() {
     println!("{}", "Type H for commends\n".blue());
 
-    //TODO create a storage system for worlds
     println!("{}", "C - create new world".yellow());
     println!("{}", "L - load world".yellow());
     println!("{}", "D - delete world".yellow());
@@ -72,12 +71,22 @@ fn take_action_from_user() -> String{
 fn do_user_commend(commend: &str) -> MenuAction {
     match commend {
         "c" => {
-            world::create_world();
+
+            let world_created: bool = create_world();
+
+            if world_created == false {
+                title();
+                objective();
+                avalibe_commends();
+
+
+                return MenuAction::Continue;
+            }
 
             MenuAction::Exit
         }
         "l" => {
-            //TODO function of deleting a world
+            //TODO function of loading a world
 
             //TEMP DELETE WHEN DID THAT
             println!("TEMP: loaded world!"); 

@@ -3,6 +3,7 @@ use crate::combat::Army;
 use crate::buildings::Buildings;
 use serde::{Serialize, Deserialize};
 
+
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Kingdom {
     pub name: String, // name of the kingdom duh
