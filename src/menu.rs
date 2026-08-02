@@ -4,7 +4,7 @@ use owo_colors::OwoColorize;
 
 
 use crate::kingdom::Kingdom;
-use crate::world::create_world;
+use crate::world::{create_world, GameState};
 use crate::save_system::{load_world_off_system, delete_saved_world_off_system};
 
 
@@ -15,7 +15,7 @@ enum MenuAction {
 }
 
 
-pub fn main_menu() -> Kingdom{
+pub fn main_menu() -> GameState{
     loop {
         // Main Menu
         title();
@@ -55,7 +55,7 @@ pub fn main_menu() -> Kingdom{
         }
 
         println!("{}", "World loaded successfully!".green());
-        return kingdom;
+        return GameState{ kingdom };
     }
 }
 

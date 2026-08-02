@@ -1,4 +1,3 @@
-use String;
 use std::io::{self, Write};
 use owo_colors::OwoColorize;
 
@@ -9,6 +8,12 @@ use crate::combat::Army;
 
 
 use crate::save_system::save_world_to_system;
+
+
+pub struct GameState {
+    pub kingdom: Kingdom,
+    // later: map, ai, etc
+}
 
 
 // Return if world was created or not so in case not, the menu can be shown
@@ -36,7 +41,7 @@ fn init_kingdom() -> Kingdom {
             gold: 250
         },
         buildings: Vec::new(),
-        army: Army {},
+        army: Army { knights: 3, archers: 0},
         turn: 0,
         last_tick: None,
     };
